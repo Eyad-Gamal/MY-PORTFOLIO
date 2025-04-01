@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyad-Gamal</title>
+    <link rel="icon" type="image/png" href="assets/images/img4.jpg">
+        <!-- #========== cdn fontAwesome ==========# -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="src/output.css">
+        <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
+        <meta property="og:title" content="Eyad Gamal's Portfolio">
+        <meta property="og:description" content="Check out Eyad Gamal's latest projects in web development using HTML, CSS, JS, and TailwindCSS.">
+        <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D03AQEH97CStwusgQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722809561105?e=1733961600&v=beta&t=6s8RXs16luMVxsQZCxTacbWA75SsHlVc_D8-aAT1upw"> <!-- Put the correct URL for the image -->
+        <meta property="og:url" content="https://eyad-gamal.github.io/my-portfolio/">
+        <meta property="og:type" content="website">
+        <!-- ======== cdn-css-AOS-library ========  -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        @keyframes timeOut {
+            0% { width: 100%; }
+            100% { width: 0; }
+        }
+        .animate-timeOut {
+            animation: timeOut 5s linear forwards;
+        }
+    </style>
+
+</head>
+ <body class="overflow-x-hidden font-outfit leading-8 dark:bg-darkTheme dark:text-white">
+    <!-- ======== notifications ========  --> 
+    <div class="notifications fixed top-8 right-8 z-[99999999]"></div>
+
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+        <img src="assets/assets/images/header-bg-color.png" alt="" class="w-full">
+    </div>
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+        <a href="index.html">
+        <img src="assets/images/logo-pxCode-black.png" alt="logo-pxCode" class="logo-imag w-24 cursor-pointer mr-14 dark:hidden">
+        <img src="assets/images/logo-pxCode-wh.png" alt="logo-pxCode" class="logo-imag w-24 cursor-pointer mr-14 hidden dark:block">
+        </a>
+        <ul
+            class="menu-icon hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12  py-3 bg-white shadow-sm bg-opacity-50 font-ovo dark:border dark:border-white/50 dark:bg-transparent">
+            <li><a href="#" class="hover:text-yellow-700">Home</a></li>
+            <li><a href="#about" class="hover:text-yellow-700">About me</a></li>
+            <li><a href="#services" class="hover:text-yellow-700">Services</a></li>
+            <li><a href="#work" class="hover:text-yellow-700">MY Work</a></li>
+            <li><a href="#contact" class="hover:text-yellow-700">Contact me</a></li>
+        </ul>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()">
+                <img src="assets/images/light.png" width="24px" alt="" class="icons-mode dark:hidden">
+                <img src="assets/images/dark.png" width="24px" alt="" class="icons-mode hidden dark:block">
+            </button>
+            <a href="#contact"
+                class="icons-content hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-ovo">Contact
+                <img src="./assets/images/arrow-up-reight.png" class="w-3 dark:hidden" alt="arrow-up-reight ">
+                <img src="./assets/images/arrow-up-right-white.png" class="w-3 hidden dark:block" alt="arrow-up-reight">
+            </a>
+
+            <button class="block md:hidden ml-3" onclick="openMenu()">
+                <img src="assets/images/bars.png" width="24" alt="" class="icons-mode dark:hidden">
+                <img src="assets/images/bars-white.png" width="24 " alt="" class=".icons-mode hidden dark:block">
+            </button>
+        </div>
+    <!-- --------- Mobile menu --------- -->
+        <ul id="silderMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed
+          -right-64 top-0 bottom-0 w-64 z-[99900] h-screen bg-gray-50  transition duration-500 dark:bg-darkHover dark:text-white">
+            <div class="absolute right-6 top-6" onclick="closMenu()">
+                <img src="./assets/images/close.png" alt="" class="w-5 cursor-pointer dark:hidden">
+                <img src="./assets/images/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block">
+            </div>
+            <li><a href="#" class="hover:text-yellow-700" onclick="closMenu()">Home</a></li>
+            <hr>
+            <li><a href="#about" class="hover:text-yellow-700" onclick="closMenu()">About me</a></li>
+            <hr>
+            <li><a href="#services" class="hover:text-yellow-700" onclick="closMenu()">Services</a></li>
+            <hr>
+            <li><a href="#work" class="hover:text-yellow-700" onclick="closMenu()">MY Work</a></li>
+            <hr>
+            <li><a href="#contact" class="hover:text-yellow-700" onclick="closMenu()">Contact me</a></li>
+        </ul>
+    </nav>
+    <!-- --------- header --------- -->
+    <div id="mainContent" class="all-bluer">
+         <div class="w-11/124 max-w-3xl text-center mx-auto flex flex-col items-center justify-center gap-4" style="padding-top: 120px;">
+            <img src="./assets/images/img4.jpg" alt="" width="128" class="header rounded-full w-">
+            <h3 class="header flex items-end gap-2 text-xl md:text-2xl mb-3 font-ovo">Hi 👋, I'm Eyad Gamal<img
+                    src="assets/images/hand-icon.png" alt="" class="w-6"></h3>
+            <h1 class="header-title text-3xl sm:text-6xl lg:text-[66px] font-ovo" style="padding: 0 15px;">frontend web developer based in Egytpt.</h1>
+            <p class="header-title max-w-2xl max-auto font-ovo" style="padding: 0 15px;">A second-year student at New Cairo Academy, Department of Computer Science
+                I'm learning to code. I am always ready to learn new techniques and push myself to improve daily.
+            </p>
+            <div class="flex  flex-col sm:flex-row items-center gap-4 mt-4">
+                <a href="#contact" class="bttom-contact px-8 py-4 border rounded-full bg-gradient-to-r
+            from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 group">
+                    Contact Me
+                    <i
+                        class="fa-solid fa-arrow-right text-cyan-50 relative group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <a href="assets/images/CV-Abdlerhman hany-.pdf" download
+                    class="bttom-cv px-8 py-4 border rounded-full border-gray-500 bg-white flex items-center gap-2 group dark:text-black">
+                    MY Resume
+                    <i class="fa-solid fa-download relative group-hover:translate-y-1 transition-transform dark:text-black"></i>
+                </a>
+            </div>
+        </div>
+        <!-- --------- About me --------- -->
+        <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+            <h4 class="text-center mb-2 text-lg font-ovo">Introduction</h4>
+            <h2 class="text-center text-5xl font-ovo">About Me</h2>
+
+            <div class="flex w-full flex-col gap-20 my-20 lg:flex-row items-center">
+                <div class="max-w-max mx-auto relative">
+                    <img src="assets/images/photo-about-me.jpg" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
+                    <div
+                        class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
+                        <img src="./assets/images/circular-text.png" alt="" class="w-full animate-spin">
+                        <img src="./assets/images/icon-manProhramer.webp" alt=""
+                            class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    </div>
+
+                </div>
+                <div class="flex-1">
+                    <p class="mb-10 max-w-2xl font-ovo" data-aos="fade-up"
+                    data-aos-duration="1500">
+                    I am a Frontend Developer with over six months of experience in freelancing,
+                     during which I have worked on various projects while pursuing my university studies.
+                      I have honed my skills in React and modern libraries, 
+                      delivering professional solutions tailored to clients' needs.
+                       Additionally, I received training through a scholarship from the Ministry of Communications,
+                        which enhanced my practical experience and deepened my understanding of best practices in frontend development.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="border-[.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-500 hover:shadow-black hover:bg-lightHover dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                            <img src="assets/images/code-icone.png" alt="" class="w-7 mt-3 dark:hidden">
+                            <img src="assets/images/code-icone-white.png" alt="" class="w-7 mt-3 hidden dark:block">
+                            <h3 class="my-4 font-semibold text-sm">Languages</h3>
+                            <p class="text-gray-600 text-sm dark:text-white/80">c++, JavaScript, typeScript, React Js, Next Js.</p>
+                        </li>
+
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="border-[.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-500 hover:shadow-black hover:bg-lightHover dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                            <img src="assets/images/education.png" alt="" class="w-7 mt-3 dark:hidden">
+                            <img src="assets/images/education-white.png" alt="" class="w-7 mt-3 hidden dark:block">
+                            <h3 class="my-4 font-semibold text-sm">Education</h3>
+                            <p class="text-gray-600 text-sm dark:text-white/80">New Cairo Academy, Department of Computer Science.</p>
+                        </li>
+
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="border-[.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-500 hover:shadow-black hover:bg-lightHover dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                            <img src="assets/images/projects.png" alt="" class="w-7 mt-3 dark:hidden">
+                            <img src="assets/images/projects-white.png" alt="" class="w-7 mt-3 hidden dark:block">
+                            <h3 class="my-4 font-semibold text-sm">Projects</h3>
+                            <p class="text-gray-600 text-sm dark:text-white/80">Built more than 3 projects in mostaql.</p>
+                        </li>
+                    </ul>
+                    <h4 class="my-6 text-gray-700 font-ovo dark:text-white/80">skills I Use:</h4>
+                    <ul class="flex flex-wrap items-center gap-3 sm:gap-5">
+                        <li  data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/html-5.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/css.webp" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/js.svg" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/bootstrap.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/sass.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/tailwind.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/Typescript.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/tquery.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                    </ul>
+                    <h4 class="my-6 text-gray-700 font-ovo dark:text-white/80">Tools I Use:</h4>
+                    <ul class="flex items-center gap-3 sm:gap-5">
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/vscode.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/figma.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/git.png" alt="" class="w-5 sm:w-7">
+                        </li>
+                        <li data-aos="fade-up"
+                        data-aos-duration="1500"
+                            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500">
+                            <img src="assets/images/github-outline.svg" alt="" class="w-5 sm:w-7 dark:hidden">
+                            <img src="assets/images/github-white.svg" alt="" class="w-5 sm:w-7 hidden dark:block">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- --------- services --------- -->
+        <div id="services" class="w-full px-[10%] py-10 scroll-mt-12">
+            <div class="all-about max-w-[1250px] mx-auto">
+                <h4 class="text-center mb-2 text-lg font-Ovo font-ovo" data-aos="fade-up"
+                data-aos-duration="1500">What i offer</h4>
+                <h2 class="text-center text-5xl font-Ovo" data-aos="fade-up"
+                data-aos-duration="1500">My services</h2>
+                <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo" data-aos="fade-up"
+                data-aos-duration="1500">In addition to the above services, I am
+                    constantly expanding my skill set and staying up-to-date with the latest technologies and industry
+                    trends. My goal is to deliver tailored solutions that meet clients' needs and exceed their
+                    expectations, ensuring a seamless user experience and high-quality performance in every project.</p>
+                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-10">
+                    <div data-aos="fade-up"
+                    data-aos-duration="1500"
+                        class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                        <img src="assets/images/web-ser.png" alt class="w-10">
+                        <h3 class="text-lg my-4 text-gray-900 dark:text-white">Website Development</h3>
+                        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Design and develop responsive and efficient websites
+                            using the latest...</p>
+                        <a href class="flex items-center gap-2 text-sm mt-5">Read more
+                            <i class="fa-solid fa-arrow-right" class="w-4"></i>
+                        </a>
+                    </div>
+                    <div data-aos="fade-up"
+                    data-aos-duration="1500"
+                        class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                        <i class="fa-solid fa-gauge text-[#ff388b] text-5xl"></i>
+                        <h3 class="text-lg my-4 text-gray-900 dark:text-white ">Website Speed and Performance Optimization</h3>
+                        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Analyze and optimize website performance to improve
+                            loading speed and enhance search engine ranking (SEO)...</p>
+                        <a href class="flex items-center gap-2 text-sm mt-5">Read more
+                            <i class="fa-solid fa-arrow-right" class="w-4"></i>
+                        </a>
+                    </div> 
+                    <div data-aos="fade-up"
+                    data-aos-duration="1500"
+                        class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                        <i class="fa-solid fa-shuffle text-[#ff388b] text-4xl"></i>
+                        <h3 class="text-lg my-4 text-gray-900da rk:text-white ">Design-to-HTML Conversion</h3>
+                        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Convert Figma, Sketch, or Adobe XD designs into
+                            responsive web pages using organized and clean code...</p>
+                        <a href class="flex items-center gap-2 text-sm mt-5">Read more
+                            <i class="fa-solid fa-arrow-right" class="w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------- My-Work --------- -->
+        <div id="work" class="w-full px-[10%] py-10 scroll-mt-20">
+            <div class="all-work max-w-[1250px] mx-auto">
+                <h4 class="text-center mb-2 text-lg font-Ovo" data-aos="fade-up"
+                data-aos-duration="1500">My portfolio</h4>
+                <h2 class="text-center text-5xl font-Ovo" data-aos="fade-up"
+                data-aos-duration="1500">My latest work</h2>
+                <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo" data-aos="fade-up"
+                data-aos-duration="1500">
+                    Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in
+                    front-end development.
+                </p>
+                <div
+                    class="w-auto flex flex-col justify-center items-center lg:grid  lg:grid-cols-2 xl:grid-cols-3  my-10 gap-5">
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/data-sec.png" alt="" class=" w-96 rounded-lg shadow-2xl">
+                        <a href="https://abdulrahman-hany.github.io/dataEsa-in-mostaql/" target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">mostaql project</h2>
+                                    <p class="text-sm text-gray-700">Data-Esa</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin dark:text-black"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/oval-offices.png" alt="" class="w-96 rounded-lg shadow-2xl">
+                        <a href="https://www.oval-offices.com/" target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">mostaql project</h2>
+                                    <p class="text-sm text-gray-700">oval-offices</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin dark:text-black "></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/Quizzy.png" alt="" class="w-96 rounded-lg shadow-2xl">
+                        <a href="https://abdulrahman-hany.github.io/Quizzy/" target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">project-team-in-DEPI</h2>
+                                    <p class="text-sm text-gray-700">Quizzy</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin dark:text-black "></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/ovii.png" alt="" class="w-96 rounded-lg shadow-2xl">
+                        <a href="https://abdulrahman-hany.github.io/ovii-in-mostaql/" target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">mostaql project</h2>
+                                    <p class="text-sm text-gray-700">ovii</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin "></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/daralmaqam.png" alt="" class="w-96 rounded-lg shadow-2xl">
+                        <a href="https://www.daralmaqam.com/" target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">mostaql project</h2>
+                                    <p class="text-sm text-gray-700">Dara-lmaqam</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin "></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative group w-fit" data-aos="fade-up"
+                    data-aos-duration="1500">
+                        <img src="assets/images/Noviland.png" alt="" class="w-96 rounded-lg shadow-2xl">
+                        <a href="https://mostaql.com/u/Eyad_Gamal/portfolio"
+                            target="_blank">
+                            <div
+                                class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 opacity-0 cursor-pointer group-hover:bottom-7 group-hover:opacity-100">
+                                <div>
+                                    <h2 class="font-semibold dark:text-black">website project</h2>
+                                    <p class="text-sm text-gray-700">Noviland</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-globe text-3xl group-hover:animate-spin "></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------- contact --------- -->
+        <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 relative
+                bg-no-repeat bg-center ">
+            <img src="assets/images/footer-bg-color-CFP5fi1s.png" alt="Footer Background"
+                class="w-full h-auto object-cover absolute top-0 left-0 bottom-0 -z-10 dark:hidden">
+            <h4 class="text-center mb-2 text-lg font-Ovo" data-aos="fade-up"
+                    data-aos-duration="1500">Connect with me</h4>
+            <h2 class="text-center text-5xl font-Ovo" data-aos="fade-up"
+                    data-aos-duration="1500">Get in touch</h2>
+            <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo" data-aos="fade-up"
+                    data-aos-duration="1500">
+                I'd love to hear from you! If you have any questions, comments or feedback, please use the form
+                below.
+
+            </p>
+            <form id="myForm" action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl mx-auto flex flex-col justify-center items-center" data-aos="fade-up"
+            data-aos-duration="1500">
+                <input type="hidden" name="access_key" value="e882cebd-3b24-4bf3-919f-d347ea472efc">
+                <div class="grid grid-cols md:grid-cols-2 gap-6 mt-10 mb-8">
+                    <input type="text" placeholder="Enter your name"
+                        class="flex-1  p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required
+                        name="name">
+                    <input type="email" placeholder="Enter your email"
+                        class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required
+                        name="email">
+                </div>
+                <textarea rows="6" placeholder="Enter your message"
+                    class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90" required
+                    name="message"></textarea>
+                <button type="submit"
+                    class="py-3 px-8 w-max items-center justify-between flex gap-2 bg-black/80 text-white rounded-full hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">
+                    Submit now <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+        <!-- --------- Footer --------- -->
+        <div class="mt-20">
+            <div class="text-center">
+                <a href="#"><img src="assets/images/logo-pxCode-black.png" alt="logo-pxCode" class=" w-36 mx-auto mb-2 dark:hidden"></a>
+                <a href="#"><img src="assets/images/logo-pxCode-wh.png" alt="logo-pxCode" class=" w-36 mx-auto mb-2 hidden dark:block"></a>
+                <div class="w-max flex items-center gap-2 mx-auto">
+                    <img src="assets/images/email.png" alt class="w-6 dark:hidden ">
+                    <img src="assets/images/email-wh.png" alt="Email icon" class="w-6 hidden dark:block">
+                    <a href="mailto:ieadgamal@gmail.com">
+                        ieadgamal@gmail.com
+                      </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+            <p>© 2025 Eyad Gamal. All rights reserved.</p>
+            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+                <li>
+                    <a target="_blank" href="hhttps://github.com/Eyad-Gamal">GitHub</a>
+                </li>
+                <li>
+                    <a target="_blank" href="www.linkedin.com/in/eyadgamal99">LinkedIn</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/ieadgamal/">Facebooke</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- ======== file-JavaScript ========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ======== file-JavaScript-notifcation ========  -->
+    <script src="assets/js/notifcation.js"></script>
+
+    <!-- Gsap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- ======== file-JavaScript-gsap ========  -->
+    <script src="assets/js/gsap.js"></script>
+
+    <!-- ======== cdn-js-AOS-library ========  -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>
